@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Main Menu</title>
+    <link type="text/css" rel="stylesheet" href="./styles/common.css" />
+    <script defer src="./aggregator.js"></script>
+  </head>
+  <body>
+    <h1>Main Menu</h1>
+    <ul>
+      <li><a href="#calculationsPage">Calculations</a></li>
+      <li><a href="#imagesGalleryPage">Images Gallery</a></li>
+      <li><a href="#passwordsGenerationPage">Passwords Generation</a></li>
+      <li><a href="#tasksListPage">Tasks List</a></li>
+      <li><a href="#unitsConversionPage">Units Conversion</a></li>
+    </ul>
+
+    <!-- Calculations Page Content -->
+    <section id="calculationsPage" style="display: none;">
+      <!-- Content from calculations.html -->
+      <h1>Calculations</h1>
+      <input type="number" id="num1" placeholder="Enter number 1" />
+      <input type="number" id="num2" placeholder="Enter number 2" />
+      <button id="addBtn">Add</button>
+      <button id="subtractBtn">Subtract</button>
+      <button id="multiplyBtn">Multiply</button>
+      <button id="divideBtn">Divide</button>
+      <p id="result">Result:</p>
+    </section>
+
+    <!-- Images Gallery Page Content -->
+    <section id="imagesGalleryPage" style="display: none;">
+      <!-- Content from imagesGallery.html -->
+      <h1>Images Gallery</h1>
+      <input type="text" id="imageUrl" placeholder="Enter image URL">
+      <button id="addImageBtn">Add Image</button>
+      <div id="gallery"></div>
+    </section>
+
+    <!-- Passwords Generation Page Content -->
+    <section id="passwordsGenerationPage" style="display: none;">
+      <!-- Content from passwordsGeneration.html -->
+      <h1>Passwords Generation</h1>
+      <label for="passwordLength">Password Length:</label>
+      <input type="number" id="passwordLength" min="1" value="8" />
+      <label for="includeLetters">Include Letters:</label>
+      <input type="checkbox" id="includeLetters" checked />
+      <label for="includeNumbers">Include Numbers:</label>
+      <input type="checkbox" id="includeNumbers" checked />
+      <label for="includeSymbols">Include Symbols:</label>
+      <input type="checkbox" id="includeSymbols" />
+      <button id="generatePasswordBtn">Generate Password</button>
+      <p id="password">Generated Password:</p>
+    </section>
+
+    <!-- Tasks List Page Content -->
+    <section id="tasksListPage" style="display: none;">
+      <!-- Content from tasksList.html -->
+      <h1>Tasks List</h1>
+      <input type="text" id="taskInput" placeholder="Enter a new task" />
+      <button id="addTaskBtn">Add Task</button>
+      <ul id="taskList"></ul>
+    </section>
+
+    <!-- Units Conversion Page Content -->
+    <section id="unitsConversionPage" style="display: none;">
+      <!-- Content from unitsConversion.html -->
+      <h1>Units Conversion</h1>
+      <input type="number" id="temperature" placeholder="Enter temperature" />
+      <select id="conversionType">
+        <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option>
+        <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
+      </select>
+      <button id="convertTemperatureBtn">Convert</button>
+      <p id="result">Result:</p>
+    </section>
+
+    <script>
+      const pages = ["calculationsPage", "imagesGalleryPage", "passwordsGenerationPage", "tasksListPage", "unitsConversionPage"];
+      
+      // Function to show the selected page
+      function showPage(pageId) {
+        pages.forEach(page => {
+          document.getElementById(page).style.display = "none";
+        });
+        document.getElementById(pageId).style.display = "block";
+      }
+      
+      // Event listeners to show pages when their links are clicked
+      document.querySelector("a[href='#calculationsPage']").addEventListener("click", () => showPage("calculationsPage"));
+      document.querySelector("a[href='#imagesGalleryPage']").addEventListener("click", () => showPage("imagesGalleryPage"));
+      document.querySelector("a[href='#passwordsGenerationPage']").addEventListener("click", () => showPage("passwordsGenerationPage"));
+      document.querySelector("a[href='#tasksListPage']").addEventListener("click", () => showPage("tasksListPage"));
+      document.querySelector("a[href='#unitsConversionPage']").addEventListener("click", () => showPage("unitsConversionPage"));
+    </script>
+  </body>
+</html>
